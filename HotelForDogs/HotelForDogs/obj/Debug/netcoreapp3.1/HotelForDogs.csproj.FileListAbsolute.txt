@@ -1,0 +1,13 @@
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\bin\Debug\netcoreapp3.1\HotelForDogs.exe
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\bin\Debug\netcoreapp3.1\HotelForDogs.deps.json
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\bin\Debug\netcoreapp3.1\HotelForDogs.runtimeconfig.json
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\bin\Debug\netcoreapp3.1\HotelForDogs.runtimeconfig.dev.json
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\bin\Debug\netcoreapp3.1\HotelForDogs.dll
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\bin\Debug\netcoreapp3.1\HotelForDogs.pdb
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\obj\Debug\netcoreapp3.1\HotelForDogs.csprojAssemblyReference.cache
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\obj\Debug\netcoreapp3.1\HotelForDogs.AssemblyInfoInputs.cache
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\obj\Debug\netcoreapp3.1\HotelForDogs.AssemblyInfo.cs
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\obj\Debug\netcoreapp3.1\HotelForDogs.csproj.CoreCompileInputs.cache
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\obj\Debug\netcoreapp3.1\HotelForDogs.dll
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\obj\Debug\netcoreapp3.1\HotelForDogs.pdb
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogs\obj\Debug\netcoreapp3.1\HotelForDogs.genruntimeconfig.cache
