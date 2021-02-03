@@ -19,13 +19,29 @@ namespace HotelForDogs
             string dayEnd = Console.ReadLine();
             DateTime lastDay;
             DateTime.TryParse(dayEnd, out lastDay);
-            Dog dog = new SmallDog(1, "Fiona", "Sznaucer", 8);
 
-            Client clien = new Client(1, "Monika", "Monika", "55");
 
-            StayAtHotel stay = new StayAtHotel(1, clien, 50, dog);
+            Console.WriteLine("How much your dog weight?");
 
-            stay.DayNumberOfStay(firstDay, lastDay);
+            string dogWeightString = Console.ReadLine();
+            int dogWeight;
+            Int32.TryParse(dogWeightString, out dogWeight);
+
+            static decimal Price(int firstDay, int lastDay, int weight) //cena zalezna od ilosci dni i wagi psa ale gdzie w kodzie to powinno byc ? non so..
+            {
+                decimal price = 0.0M;
+                DayNumberOfStay(firstDay, lastDay);
+                return price;
+            }
+            static int DayNumberOfStay(DateTime firstDay, DateTime lastDay)
+            {
+                TimeSpan result = lastDay - firstDay;
+                string TotalDays = result.TotalDays.ToString();
+                int totalDays;
+                Int32.TryParse(TotalDays, out totalDays);
+                Console.WriteLine(totalDays);
+                return totalDays;
+            }
 
         }
     }

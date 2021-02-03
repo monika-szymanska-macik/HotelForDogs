@@ -6,26 +6,23 @@ namespace HotelForDogs
 {
     class StayAtHotel
     {
-        public StayAtHotel(int id, Client client, decimal price, Dog dog)
-        {
-            Id = id;
-            Client = client;
-            Price = price;
-            Dog = dog;
-        }
 
         public int Id { get; set; }
         public Client Client { get; set; }
         public decimal Price { get; set; }
         public Dog Dog { get; set; }
-        public int TimeOfStayAtHotel { get; set; }
 
-        public string DayNumberOfStay(DateTime firstDay, DateTime lastDay)
+        
+
+        List<StayAtHotel> listOfStays = new List<StayAtHotel>();
+
+        public List<StayAtHotel> AddNewStay(int id, Client client, Dog dog)
         {
-            TimeSpan result = lastDay - firstDay;
-            string TotalDays = result.TotalDays.ToString();
-            Console.WriteLine(TotalDays);
-            return TotalDays;
+
+            StayAtHotel stay = new StayAtHotel();
+            listOfStays.Add(stay);
+            return listOfStays;
+
         }
     }
 }
