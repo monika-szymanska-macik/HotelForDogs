@@ -4,11 +4,12 @@ using System.Text;
 
 namespace HotelForDogs
 {
-    class BigDog : Dog
+    class DogService
     {
-        public BigDog(int id, string name, string breed, int weight) : base(id, name, breed, weight)
+        public List<Dog> Dogs { get; set; }
+        public DogService()
         {
-
+            Dogs = new List<Dog>();
         }
     }
 }
