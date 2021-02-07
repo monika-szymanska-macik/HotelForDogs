@@ -8,12 +8,14 @@ namespace HotelForDogs
     class Client
     {
         
-        public Client(int id, string firstName, string lastName, string phoneNumber)
+        public Client(int id, string firstName, string lastName, string phoneNumber,Dog dog)
         {
             Id = id;
             FirstName = firstName;
             LastName = lastName;
             PhoneNumber = phoneNumber;
+            Dog = dog;
+
             
         }
 
@@ -21,7 +23,9 @@ namespace HotelForDogs
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        public Dog dog { get; set; }
+        public Dog Dog { get; set; }
+
+ 
 
 
     }

@@ -7,16 +7,16 @@ namespace HotelForDogs
 {
     class StayAtHotel
     {
-        private IList<Client> _clients;
+        private ClientAccount _clientAccount;
         public StayAtHotel()
         {
-            _clients = new List<Client>();
+            _clientAccount = new ClientAccount();   
             _dogs = new List<Dog>();
         }
 
         public int Id { get; set; }
-        public int ClientId { get; set; }
-        public int dogId { get; set; }
+        public Client Client { get; set; }
+
 
         private List<Dog> _dogs;
 
@@ -26,16 +26,9 @@ namespace HotelForDogs
         public void AddNewStay(int clientId)
         {
             StayAtHotel stay = new StayAtHotel();
-            Console.WriteLine("We need some information about your dog.");
-            Console.WriteLine("Please enter a name of your dog:");
-            string dogName = Console.ReadLine();
-            Console.WriteLine("Please enter a breed of your dog:");
-            string breed = Console.ReadLine();
-            Console.WriteLine("Please enter a weight of your dog:");
-            string weightOfDog = Console.ReadLine();
-            int weight;
-            Int32.TryParse(weightOfDog, out weight);
-            stay.CreateDogAccount(dogName, breed, weight);
+            var account = _clientAccount.GetClientAccountById(clientId);
+            Console.WriteLine($"This is an account of {account.FirstName} {account.LastName}.");
+            Console.WriteLine($"Your dog is {account.Dog.Name}");
             Console.WriteLine("Please enter the day of arrival of your dog: ");
             Console.WriteLine("(for example: 31-01-2021)");
 
@@ -51,25 +44,17 @@ namespace HotelForDogs
             listOfStays.Add(stay);
             int lengthOfStay = DayNumberOfStay(firstDay, lastDay);
             Console.WriteLine($"Your dog will stay with us for {lengthOfStay} days");
-            decimal price = Price(lengthOfStay, weight);
+            decimal price = Price(lengthOfStay, account.Dog.Weight);
             Console.WriteLine($"The cost of the stay is {price} PLN");
             listOfStays.Add(stay);        
 
         }
         public void AddNewStayForNewClient()
         {
-            CreateClientAccount();
             StayAtHotel stay = new StayAtHotel();
-            Console.WriteLine("We need some information about your dog.");
-            Console.WriteLine("Please enter a name of your dog:");
-            string dogName = Console.ReadLine();
-            Console.WriteLine("Please enter a breed of your dog:");
-            string breed = Console.ReadLine();
-            Console.WriteLine("Please enter a weight of your dog:");
-            string weightOfDog = Console.ReadLine();
-            int weight;
-            Int32.TryParse(weightOfDog, out weight);
-            stay.CreateDogAccount(dogName, breed, weight);
+            
+            var dog = _clientAccount.CreateDogAccount();
+            _clientAccount.CreateClientAccount(dog);
             Console.WriteLine("Please enter the day of arrival of your dog: ");
             Console.WriteLine("(for example: 31-01-2021)");
 
@@ -81,12 +66,12 @@ namespace HotelForDogs
 
             string dayEnd = Console.ReadLine();
             DateTime lastDay;
-            DateTime.TryParse(dayEnd, out lastDay);
-            listOfStays.Add(stay);
+            DateTime.TryParse(dayEnd, out lastDay);          
             int lengthOfStay = DayNumberOfStay(firstDay, lastDay);
             Console.WriteLine($"Your dog will stay with us for {lengthOfStay} days");
-            decimal price = Price(lengthOfStay, weight);
-            Console.WriteLine($"The cost of the stay is {price} PLN");
+            decimal price = Price(lengthOfStay, dog.Weight);
+            Console.WriteLine($"The cost of a {dog.Name} stay is {price} PLN");
+            listOfStays.Add(stay);
 
         }
         public List<StayAtHotel> GetStayList()
@@ -99,7 +84,7 @@ namespace HotelForDogs
             List<StayAtHotel> clientStay = new List<StayAtHotel>();
             foreach (var stay in listOfStays)
             {
-                if (stay.ClientId == clientId)
+                if (stay.Client.Id == clientId)
                 {
                     clientStay.Add(stay);
                 }
@@ -116,7 +101,7 @@ namespace HotelForDogs
         }
         private decimal Price(int totalDays, int weight)
         {
-            decimal price = 0.0M;
+            decimal price;
 
 
             if (weight <= 10)
@@ -143,46 +128,10 @@ namespace HotelForDogs
             }
             return price;
         }
-        private int GenerateClientId()
-        {
-            int id = 1;
-            if (_clients.Any())
-            {
-                id = _clients.Max(x => x.Id) + 1;
-            }
-            return id;
-        }
-        public Client CreateClientAccount()
-        {
-            int id = GenerateClientId();
-            Console.WriteLine("Enter your name:");
-            string firstName = Console.ReadLine();
-            Console.WriteLine("Enter your last name:");
-            string lastName = Console.ReadLine();
-            Console.WriteLine("Enter your phone number: ");
-            string phoneNumber = Console.ReadLine();
-            Client account = new Client(id, firstName, lastName, phoneNumber);
-            _clients.Add(account);
-            Console.WriteLine($"Accout for name: {account.FirstName}, last name: {account.LastName}, phone number: {account.PhoneNumber} is created. Your Client Number is {account.Id}");
-            return account;
-        }
-        private int GenerateDogId()
-        {
-            int id = 1;
-            if (_dogs.Any())
-            {
-                id = _dogs.Max(x => x.Id) + 1;
-            }
-            return id;
-        }
-        public Dog CreateDogAccount(string name, string breed, int weight)
-        {
-            int dogId = GenerateDogId();
-            Dog dog = new Dog(dogId, name, breed, weight);
-            _dogs.Add(dog);
-            Console.WriteLine($"Your Dog Number is {dog.Id}");
-            return dog;
-        }
-       
+
+        
+        
+
+
     }
-}
+    }
