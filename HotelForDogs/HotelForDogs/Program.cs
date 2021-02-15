@@ -15,18 +15,17 @@ namespace HotelForDogs
                 Console.WriteLine("Do you have an account created in our hotel?");
                 Console.WriteLine("Pleas enter Y for yes or N for no");
                 string hotelClient = Console.ReadLine();
-                if (hotelClient == "y" || hotelClient == "Y")
+                if (hotelClient.ToLower().Equals("y"))
                 {
 
                         Console.WriteLine("Please enter your Client Number");
                         string clientNumber = Console.ReadLine();
-                        int clientId;
-                        Int32.TryParse(clientNumber, out clientId);
-
+                        Int32.TryParse(clientNumber, out int clientId);
+                        //if clientid == null wiadomosc ze zla wiadomosc
                         stay.AddNewStay(clientId);
 
                 }
-                else if (hotelClient == "n" || hotelClient == "N")
+                else if (hotelClient.ToLower().Equals("n"))
                 {
                     stay.AddNewStayForNewClient();
                 }

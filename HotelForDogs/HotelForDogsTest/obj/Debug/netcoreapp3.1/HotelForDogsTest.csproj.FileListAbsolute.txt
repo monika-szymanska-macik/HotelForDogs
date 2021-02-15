@@ -1,0 +1,4 @@
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogsTest\obj\Debug\netcoreapp3.1\HotelForDogsTest.csprojAssemblyReference.cache
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogsTest\obj\Debug\netcoreapp3.1\HotelForDogsTest.AssemblyInfoInputs.cache
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogsTest\obj\Debug\netcoreapp3.1\HotelForDogsTest.AssemblyInfo.cs
+C:\Users\monik\source\repos\HotelForDogs\HotelForDogs\HotelForDogsTest\obj\Debug\netcoreapp3.1\HotelForDogsTest.csproj.CoreCompileInputs.cache

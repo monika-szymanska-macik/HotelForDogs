@@ -5,13 +5,14 @@ using System.Text;
 
 namespace HotelForDogs
 {
-    class StayAtHotel
+    class StayAtHotel //Reservation
     {
-        private ClientAccount _clientAccount;
+        private ClientService _clientService;
+        private DogService _dogService;
         public StayAtHotel()
         {
-            _clientAccount = new ClientAccount();   
-            _dogs = new List<Dog>();
+            _clientService = new ClientService();
+            _dogService = new DogService();
         }
 
         public int Id { get; set; }
@@ -23,49 +24,8 @@ namespace HotelForDogs
 
         List<StayAtHotel> listOfStays = new List<StayAtHotel>();
 
-        public void AddNewStay(int clientId)
-        {
-            StayAtHotel stay = new StayAtHotel();
-            var account = _clientAccount.GetClientAccountById(clientId);
-            Console.WriteLine($"This is an account of {account.FirstName} {account.LastName}.");
-            Console.WriteLine($"Your dog is {account.Dog.Name}");
-
-            _clientAccount.HowLongIsStay(account.Dog);
-
-            listOfStays.Add(stay);        
-
-        }
-        public void AddNewStayForNewClient()
-        {
-            StayAtHotel stay = new StayAtHotel();
-
-            var dog = _clientAccount.CreateDogAccount();
-            _clientAccount.CreateClientAccount(dog);
-
-            _clientAccount.HowLongIsStay(dog);
-            listOfStays.Add(stay);
-
-        }
-
+        //StayAtHotelService w repository serviski z client i dog , serive hotel = korzysta z serw dog i client (c# sql lite) singleton 
         
-
-        public List<StayAtHotel> GetStayList()
-        {
-            return listOfStays;
-        }
-
-        public List<StayAtHotel> GatStayListByClient(int clientId)
-        {
-            List<StayAtHotel> clientStay = new List<StayAtHotel>();
-            foreach (var stay in listOfStays)
-            {
-                if (stay.Client.Id == clientId)
-                {
-                    clientStay.Add(stay);
-                }
-            }
-            return clientStay;
-        }
         
 
         

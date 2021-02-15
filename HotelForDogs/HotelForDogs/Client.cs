@@ -5,10 +5,14 @@ using System.Text;
 
 namespace HotelForDogs
 {
-    class Client
+    public class Client
     {
-        
-        public Client(int id, string firstName, string lastName, string phoneNumber,Dog dog)
+        public Client()
+        {
+
+        }
+
+        public Client(int id, string firstName, string lastName, string phoneNumber, Dog dog)
         {
             Id = id;
             FirstName = firstName;
@@ -16,12 +20,32 @@ namespace HotelForDogs
             PhoneNumber = phoneNumber;
             Dog = dog;
 
-            
+
         }
+
+
 
         public int Id { get; set; }
         public string FirstName { get; set; }
-        public string LastName { get; set; }
+        private string _lastName { get; set; }
+        public string LastName
+        {
+            get
+            {
+                return _lastName;
+            }
+            set
+            {
+                _lastName = value;
+            }
+        }
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
         public string PhoneNumber { get; set; }
         public Dog Dog { get; set; }
 
