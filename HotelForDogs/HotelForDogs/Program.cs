@@ -6,7 +6,7 @@ namespace HotelForDogs
     {
         static void Main(string[] args)
         {
-            StayAtHotel stay = new StayAtHotel();
+            StayAtHotelService stayAtHotelService = new StayAtHotelService();
 
             while (true)
             {
@@ -15,25 +15,28 @@ namespace HotelForDogs
                 Console.WriteLine("Do you have an account created in our hotel?");
                 Console.WriteLine("Pleas enter Y for yes or N for no");
                 string hotelClient = Console.ReadLine();
-                if (hotelClient.ToLower().Equals("y"))
+                switch (hotelClient.ToLower())
                 {
+                    case "y":
 
                         Console.WriteLine("Please enter your Client Number");
                         string clientNumber = Console.ReadLine();
                         Int32.TryParse(clientNumber, out int clientId);
-                        //if clientid == null wiadomosc ze zla wiadomosc
-                        stay.AddNewStay(clientId);
+                        if (clientId == 0 || clientId == null)
+                        {
+                            Console.WriteLine("Value invalid");
+                        }
+                        stayAtHotelService.AddNewStay(clientId);
+                        break;
+                    case "n":
+                        stayAtHotelService.AddNewStayForNewClient();
+                        break;
+                    default:
+                        Console.WriteLine("Value invalid");
+                        break;
+                }
 
-                }
-                else if (hotelClient.ToLower().Equals("n"))
-                {
-                    stay.AddNewStayForNewClient();
-                }
-                else
-                {
-                    Console.WriteLine("Value invalid;");
-                }
-                Console.WriteLine();
+            Console.WriteLine();
             }
 
         }

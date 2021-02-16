@@ -34,7 +34,7 @@ namespace HotelForDogs
             Client account = new Client(id, firstName, lastName, phoneNumber, dog);
 
             _clients.Add(account);
-            Console.WriteLine($"Accout for name: {account.FirstName}, last name: {account.LastName}, phone number: {account.PhoneNumber} is created. Your Client Number is {account.Id}");
+            Console.WriteLine($"Accout for: {account.FullName} phone number: {account.PhoneNumber} is created. Your Client Number is {account.Id}");
             return account;
         }
         public Client GetClientAccountById(int clientId)

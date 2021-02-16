@@ -14,6 +14,8 @@ namespace HotelForDogs
         {
             _reservationManagement = new ReservationManagement();
             _listOfStays = new List<StayAtHotel>();
+            _dogService = new DogService();
+            _clientService = new ClientService();
 
         }
         public void AddNewStay(int clientId)

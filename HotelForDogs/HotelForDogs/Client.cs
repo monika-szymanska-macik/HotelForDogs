@@ -7,10 +7,7 @@ namespace HotelForDogs
 {
     public class Client
     {
-        public Client()
-        {
 
-        }
 
         public Client(int id, string firstName, string lastName, string phoneNumber, Dog dog)
         {

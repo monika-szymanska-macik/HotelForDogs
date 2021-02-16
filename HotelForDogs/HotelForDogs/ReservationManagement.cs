@@ -12,14 +12,27 @@ namespace HotelForDogs
             Console.WriteLine("(for example: 31-01-2021)");
 
             string startDay = Console.ReadLine();
-            DateTime firstDay;
-            DateTime.TryParse(startDay, out firstDay);
+            if(DateTime.TryParse(startDay, out DateTime firstDay))
+            {
+                
+            }
+            else
+            {
+                Console.WriteLine("Value invalid");
+            }
+            
 
             Console.WriteLine("Please enter the day of departure of your dog");
 
             string dayEnd = Console.ReadLine();
-            DateTime lastDay;
-            DateTime.TryParse(dayEnd, out lastDay);
+            if(DateTime.TryParse(dayEnd, out DateTime lastDay))
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Value invalid");
+            }
             int lengthOfStay = DayNumberOfStay(firstDay, lastDay);
             Console.WriteLine($"Your dog will stay with us for {lengthOfStay} days");
             decimal price = Price(lengthOfStay, dog.Weight);
