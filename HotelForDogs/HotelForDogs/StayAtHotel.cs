@@ -24,7 +24,6 @@ namespace HotelForDogs
 
         List<StayAtHotel> listOfStays = new List<StayAtHotel>();
 
-        //StayAtHotelService w repository serviski z client i dog , serive hotel = korzysta z serw dog i client (c# sql lite) singleton 
         
         
 

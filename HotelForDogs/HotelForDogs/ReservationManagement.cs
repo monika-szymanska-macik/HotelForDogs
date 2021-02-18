@@ -8,31 +8,39 @@ namespace HotelForDogs
     {
         public void HowLongIsStay(Dog dog)
         {
-            Console.WriteLine("Please enter the day of arrival of your dog: ");
-            Console.WriteLine("(for example: 31-01-2021)");
+            bool firstDayParseResult, lastDayParseResult;
+            DateTime firstDay, lastDay;
 
-            string startDay = Console.ReadLine();
-            if(DateTime.TryParse(startDay, out DateTime firstDay))
+            do
             {
+                Console.WriteLine("Please enter the day of arrival of your dog: ");
+                Console.WriteLine("(for example: 31-01-2021)");
+
+                string startDay = Console.ReadLine();
+                firstDayParseResult = DateTime.TryParse(startDay, out firstDay);
+
+                if (!firstDayParseResult)
+                {
+                    Console.WriteLine("Value invalid");
+                }
                 
-            }
-            else
-            {
-                Console.WriteLine("Value invalid");
-            }
-            
+            } while (!firstDayParseResult);
 
-            Console.WriteLine("Please enter the day of departure of your dog");
 
-            string dayEnd = Console.ReadLine();
-            if(DateTime.TryParse(dayEnd, out DateTime lastDay))
+            do
             {
+                Console.WriteLine("Please enter the day of departure of your dog");
 
-            }
-            else
-            {
-                Console.WriteLine("Value invalid");
-            }
+                string dayEnd = Console.ReadLine();
+                lastDayParseResult = DateTime.TryParse(dayEnd, out lastDay);
+
+                if (!lastDayParseResult)
+                {
+                    Console.WriteLine("Value invalid");
+                }
+
+            } while (!lastDayParseResult);
+
             int lengthOfStay = DayNumberOfStay(firstDay, lastDay);
             Console.WriteLine($"Your dog will stay with us for {lengthOfStay} days");
             decimal price = Price(lengthOfStay, dog.Weight);
